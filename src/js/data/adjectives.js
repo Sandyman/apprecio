@@ -190,7 +190,6 @@ const Adjectives = [
   'Sexy',
   'Sharing',
   'Shrewd',
-  'Simple',
   'Skillful',
   'Sober',
   'Sociable',
