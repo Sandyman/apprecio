@@ -99,15 +99,16 @@ const About = () => (
 		</a>
 		<div id="about">
 			<a href="#" className="close"><X /></a>
-			<h2>About Apprecio</h2>
+			<h3>About Apprecio</h3>
 			<p>
 				Appreciating someone is an act of kindness. We appreciate others for their positive personal traits, and we should
 				all do more of it. But sometimes, it's hard to find the right word. Apprecio aims to help you with that. A source
-				of inspiration to consult when you're looking for that one word that describes your friend, partner, parent,
-				or colleague, best.
+				of inspiration to consult when you're looking for that one word with which you can best appreciate your friend,
+				partner, parent, or colleague.
 				<br/><br/>
 				Every time you load the site, you will be shown a new positive trait, something that you may appreciate in
-				your friend. Not the word you're looking for? Simply click the button, and you will be presented a new word.
+				your friend. Not the word you're looking for? Simply click the refresh icon, and you will be presented with
+				a new word.
 				<br/><br/>
 				Be inspired. Share your appreciation. Make the world a slightly better place.
 			</p>
@@ -117,7 +118,7 @@ const About = () => (
 				in Perth, Australia. In his work, he noticed that our everyday vocabulary seems to be biased toward the negative.
 				Apprecio is his attempt to change that.
 			</p>
-			<h4>Contact Sander</h4>
+			<h3>Contact Sander</h3>
 			<p>
 				<span id="icon"><Twitter /></span>
 				&nbsp;&nbsp;
@@ -129,7 +130,7 @@ const About = () => (
 				<a href="https://sanderhuijsen.com/" target="_blank" rel="nofollow">sanderhuijsen.com</a>
 			</p>
 			<p>&nbsp;</p>
-			<h5>Design</h5>
+			<h3>Design</h3>
 			<p id="design">
 				<span id="icon"><Layout /></span>
 				&nbsp;&nbsp;
