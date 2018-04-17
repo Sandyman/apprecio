@@ -121,7 +121,16 @@ img {
 }
 
 #glyph {
-  color: #{$grey_light_50};
-
+  color: #{$grey_light_90};
   font-size: 0.7em;
+
+  &:focus {
+    color: #{$grey_light_50}
+  }
+  &:hover {
+    color: #{$grey_light_75}
+  }
+  &:active {
+    color: #{$grey_dark_75}
+  }
 }
