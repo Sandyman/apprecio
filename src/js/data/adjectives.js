@@ -159,7 +159,7 @@ const Adjectives = [
   'Providential',
   'Prudent',
   'Punctual',
-  'Pruposeful',
+  'Purposeful',
   'Rational',
   'Realistic',
   'Reflective',
