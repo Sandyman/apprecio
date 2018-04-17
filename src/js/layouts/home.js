@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { Glyphicon, OverlayTrigger, Popover } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 import Typed from 'typed.js';
 
 //Resources
-import { Layout, Info, Twitter, Globe, X } from 'react-feather';
+import { Layout, Info, Twitter, Globe, RefreshCcw, X } from 'react-feather';
 import Adjectives from '../data/adjectives.js';
 
 class Meta extends Component {
@@ -84,7 +83,7 @@ export class Home extends Component {
 			<Fragment>
         <h1>I think you are <span ref={(el) => {this.el = el;}} id="adjective" />
 					&nbsp;&nbsp;
-					<span id="glyph"><Glyphicon glyph="refresh" onClick={() => this.newWord()} /></span>
+          <button className="refresh" onClick={() => this.newWord()}>{<RefreshCcw />}</button>
 				</h1>
 				<About />
 			</Fragment>

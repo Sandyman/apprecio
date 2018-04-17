@@ -7,8 +7,8 @@ body {
   background: var(--background);
   color: $grey;
   font: $font_regular;
-  font-size: 1.2em;
-  line-height: 1.4;
+  font-size: 1.6em;
+  line-height: 1.8;
   min-height: 100vh;
   margin: 0;
   overflow-x: hidden;
@@ -36,16 +36,17 @@ a {
 
 button, .btn {
   background: transparent;
-  border: 3px solid var(--colour);
-  color: $grey;
+  border: none;
+  outline: none !important;
+  box-shadow: none !important;
+  color: $grey_light_50;
   cursor: pointer;
   display: inline-block;
-  font-size: 2em;
+  font-size: 1em;
   padding: 10px 20px;
 
   &:active, &:hover, &:focus {
-    background: var(--colour);
-    color: $grey;
+    border: none;
   }
 }
 
@@ -83,6 +84,42 @@ img {
     -2px 2px var(--background),
     -2px -2px var(--background);
   min-width: 600px;
+}
+
+.refresh {
+  position: relative;
+  top: 10px;
+  svg {
+    --size: 1em;
+    height: var(--size);
+    width: var(--size);
+
+    &:active, &:hover, &:focus {
+      animation: refresh 2s linear;
+    }
+
+    @keyframes refresh {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(-90deg);
+      }
+
+      50% {
+        transform: rotate(-180deg);
+      }
+
+      75% {
+        transform: rotate(-270deg);
+      }
+
+      100% {
+        transform: rotate(-360deg);
+      }
+    }
+  }
 }
 
 .about {
