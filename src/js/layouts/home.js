@@ -38,28 +38,20 @@ export class Home extends Component {
 	constructor() {
 		super();
 
-		this.state = {
-			adjective: '',
-		};
-
-		this.getRandomAdjective = this.getRandomAdjective.bind(this);
+		Home.getRandomAdjective = Home.getRandomAdjective.bind(this);
 		this.newWord = this.newWord.bind(this);
 		this.setTypedWord = this.setTypedWord.bind(this);
 	}
 
-	getRandomAdjective() {
+	static getRandomAdjective() {
 		const sumWords = Adjectives.length;
 		const index = Math.floor(Math.random() * Math.floor(sumWords));
-		const adjective = Adjectives[index].toLowerCase();
-		this.setState({
-			adjective,
-		});
-		return adjective;
+		return Adjectives[index].toLowerCase();
 	}
 
 	setTypedWord(typeSpeed, backSpeed) {
     const options = {
-      strings: [this.getRandomAdjective()],
+      strings: [Home.getRandomAdjective()],
       typeSpeed,
       backSpeed,
       fadeOut: true,
