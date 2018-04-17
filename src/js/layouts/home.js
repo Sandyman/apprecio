@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import Typed from 'typed.js';
 
 //Resources
-import { Layout, Info, Twitter, Globe, RefreshCcw, X } from 'react-feather';
+import { Layout, Info, Twitter, Globe, RefreshCcw, X, MessageSquare, Share2 } from 'react-feather';
 import Adjectives from '../data/adjectives.js';
 
 class Meta extends Component {
@@ -38,6 +38,11 @@ export class Home extends Component {
 	constructor() {
 		super();
 
+    this.state = {
+      word: ''
+    };
+
+    Home.getRandomAdjective = Home.getRandomAdjective.bind(this);
 		this.newWord = this.newWord.bind(this);
 		this.setTypedWord = this.setTypedWord.bind(this);
 	}
@@ -45,7 +50,11 @@ export class Home extends Component {
 	static getRandomAdjective() {
 		const sumWords = Adjectives.length;
 		const index = Math.floor(Math.random() * Math.floor(sumWords));
-		return Adjectives[index].toLowerCase();
+		const adjective = Adjectives[index].toLowerCase();
+    this.setState({
+      word: adjective
+    });
+		return adjective;
 	}
 
 	setTypedWord(typeSpeed, backSpeed) {
@@ -72,6 +81,7 @@ export class Home extends Component {
 	render() {
 		return (
 			<Fragment>
+        <Share word={this.state.word} />
         <h1>I think you are <span ref={(el) => {this.el = el;}} id="adjective" />
 					&nbsp;&nbsp;
           <button className="refresh" onClick={() => this.newWord()}>{<RefreshCcw />}</button>
@@ -129,3 +139,41 @@ const About = () => (
 		</div>
 	</div>
 );
+
+class Share extends Component {
+  static shareLinks(word) {
+    let name = document.getElementById('name').value;
+    let number = document.getElementById('number').value;
+    let provider = document.querySelector('input[name="provider"]:checked').value;
+    let articleLink = '';
+    if (provider === 'twitter') {
+      let url = "https://twitter.com/messages/compose?text=Hey%20" + name + ",%20I%20think%20you%20are%20";
+      let urlWord = word.replace(' ', '%20');
+      articleLink = url + urlWord;
+    } else if (provider === 'sms') {
+      let url = "sms:" + number + "?body=Hey " + name + "I think you are ";
+      articleLink = url + word;
+    }
+    window.open(articleLink, '_blank');
+  };
+
+  render() {
+    return (
+      <Fragment>
+        <div className="share icons">
+          <a href="#share"><Share2 /></a>
+        </div>
+        <div id="share" className="share-modal">
+          <a href="#" className="close"><X /></a>
+          <div className="icons">
+            <label><input type="radio" name="provider" value="twitter" /><Twitter /></label>
+            <label><input type="radio" name="provider" value="sms" /><MessageSquare /></label>
+          </div>
+          <input id="name" type="text" placeholder="Their name" />
+          <input id="number" type="text" placeholder="Their number" />
+          <button type="button" onClick={() => Share.shareLinks(this.props.word)}>Send them some love</button>
+        </div>
+      </Fragment>
+    );
+  };
+}
