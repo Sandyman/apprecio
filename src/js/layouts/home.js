@@ -49,10 +49,8 @@ export class Home extends Component {
 	}
 
 	setTypedWord(typeSpeed, backSpeed) {
-    let words = Home.getRandomAdjective();
-
     const options = {
-      strings: [words],
+      strings: [Home.getRandomAdjective()],
       typeSpeed,
       backSpeed,
       fadeOut: true,
@@ -102,9 +100,9 @@ const About = () => (
 			</p>
 			<h3>About Sander</h3>
 			<p>
-				Apprecio is a project developed by Sander Huijsen. Sander is Time to Think Facilitator (in practicum)
-				who lives in Perth, Australia. In his work, he noticed that our every vocabulary seems to be biased toward
-				the negative. Apprecio is his attempt to fix that.
+				Apprecio is a project developed by Sander Huijsen. Sander is Time to Think Facilitator (in practicum) who lives
+				in Perth, Australia. In his work, he noticed that our everyday vocabulary seems to be biased toward the negative.
+				Apprecio is his attempt to change that.
 			</p>
 			<h4>Contact Sander</h4>
 			<p>
