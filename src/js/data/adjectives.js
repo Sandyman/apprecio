@@ -225,7 +225,6 @@ const Adjectives = [
   'Vivacious',
   'Vulnerable',
   'Warm',
-  'Well-bred',
   'Well-read',
   'Well-rounded',
   'Winning',
