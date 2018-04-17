@@ -26,3 +26,9 @@ package-lock.json
 
 # Videos 
 src/**/*.mp4
+
+# Webstorm
+.idea/
+
+# Joe
+*~ 
