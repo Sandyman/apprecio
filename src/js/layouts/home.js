@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
+import { Glyphicon, OverlayTrigger, Popover } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 import Typed from 'typed.js';
 
 //Resources
-import { Info, Twitter, Globe, X } from 'react-feather';
+import { Layout, Info, Twitter, Globe, X } from 'react-feather';
 import Adjectives from '../data/adjectives.js';
 
 class Meta extends Component {
@@ -38,19 +39,28 @@ export class Home extends Component {
 	constructor() {
 		super();
 
+		this.state = {
+			adjective: '',
+		};
+
+		this.getRandomAdjective = this.getRandomAdjective.bind(this);
 		this.newWord = this.newWord.bind(this);
 		this.setTypedWord = this.setTypedWord.bind(this);
 	}
 
-	static getRandomAdjective() {
-		let sumWords = Adjectives.length;
-		let index = Math.floor(Math.random() * Math.floor(sumWords));
-		return Adjectives[index].toLowerCase();
+	getRandomAdjective() {
+		const sumWords = Adjectives.length;
+		const index = Math.floor(Math.random() * Math.floor(sumWords));
+		const adjective = Adjectives[index].toLowerCase();
+		this.setState({
+			adjective,
+		});
+		return adjective;
 	}
 
 	setTypedWord(typeSpeed, backSpeed) {
     const options = {
-      strings: [Home.getRandomAdjective()],
+      strings: [this.getRandomAdjective()],
       typeSpeed,
       backSpeed,
       fadeOut: true,
@@ -72,8 +82,10 @@ export class Home extends Component {
 	render() {
 		return (
 			<Fragment>
-				<h1>I think you are <span ref={(el) => {this.el = el;}} id="adjective" /></h1>
-				<button onClick={() => this.newWord()}>Not quite right? Try a different word!</button>
+        <h1>I think you are <span ref={(el) => {this.el = el;}} id="adjective" />
+					&nbsp;&nbsp;
+					<span id="glyph"><Glyphicon glyph="refresh" onClick={() => this.newWord()} /></span>
+				</h1>
 				<About />
 			</Fragment>
 		);
@@ -107,12 +119,21 @@ const About = () => (
 			</p>
 			<h4>Contact Sander</h4>
 			<p>
-        <Twitter />&nbsp;&nbsp;
+				<span id="icon"><Twitter /></span>
+				&nbsp;&nbsp;
 				<a href="https://twitter.com/ahuijsen" target="_blank" rel="nofollow">@ahuijsen</a>
 			</p>
 			<p>
-				<Globe />&nbsp;&nbsp;
+				<span id="icon"><Globe /></span>
+				&nbsp;&nbsp;
 				<a href="https://sanderhuijsen.com/" target="_blank" rel="nofollow">sanderhuijsen.com</a>
+			</p>
+			<p>&nbsp;</p>
+			<h5>Design</h5>
+			<p id="design">
+				<span id="icon"><Layout /></span>
+				&nbsp;&nbsp;
+				Web design by <a href="https://amygoestoperth.com.au" target="_blank" rel="nofollow">Amy Kapernick</a>.
 			</p>
 		</div>
 	</div>

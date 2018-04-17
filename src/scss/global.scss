@@ -11,13 +11,12 @@ body {
 ::-webkit-scrollbar {
 	background-color: transparent;
 	width: 5px;
-  }
+}
   
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
 	background-color: rgba($grey, 0.2);
-  
+
 	&:hover {
-	  background-color: $grey;
+		background-color: $grey;
 	}
-  }
-  
+}
