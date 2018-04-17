@@ -1,0 +1,23 @@
+@import 'variables.scss';
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+::-webkit-scrollbar {
+	background-color: transparent;
+	width: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+	background-color: rgba($grey, 0.2);
+  
+	&:hover {
+	  background-color: $grey;
+	}
+  }
+  
