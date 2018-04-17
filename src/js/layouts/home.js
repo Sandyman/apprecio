@@ -38,7 +38,6 @@ export class Home extends Component {
 	constructor() {
 		super();
 
-		Home.getRandomAdjective = Home.getRandomAdjective.bind(this);
 		this.newWord = this.newWord.bind(this);
 		this.setTypedWord = this.setTypedWord.bind(this);
 	}
