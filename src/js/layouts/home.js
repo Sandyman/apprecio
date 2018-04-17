@@ -1,18 +1,17 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
-import ReactDOM from 'react-dom';
 import Typed from 'typed.js';
 
 //Resources
-import {Info, Twitter, Globe, X} from 'react-feather';
+import { Info, Twitter, Globe, X } from 'react-feather';
 import Adjectives from '../data/adjectives.js';
 
 class Meta extends Component {
 	render() {
-		let name = 'Compliment Generator';
-		let description = "Can't think of something nice to say? We can come up with it for you";
+		let name = 'Apprecio';
+		let description = 'When you need some inspiration to find the right words.';
 		let image = '';
-		let url = '';
+		let url = 'https://www.apprecio.life';
 		return (
 			<Helmet>
 				<title>{name}</title>
@@ -90,29 +89,31 @@ const About = () => (
 		</a>
 		<div id="about">
 			<a href="#" className="close"><X /></a>
-			<h2>About this project</h2>
-			<p>This seems pretty cool, and we can put text here about stuff</p>
-			<p>This is based off the list of words at <a href="http://ideonomy.mit.edu/essays/traits.html" target="_blank" rel="nofollow">http://ideonomy.mit.edu/essays/traits</a> but a couple of the words might need removing.</p>
-			<h2>About Sander</h2>
-			<p>Sander lives in Perth and loves swing dancing and software development</p>
+			<h2>About Apprecio</h2>
 			<p>
-				<a href="https://twitter.com/ahuijsen" target="_blank" rel="nofollow">
-					<Twitter />
-				</a>
-				<a href="http://sanderhuijsen.com/" target="_blank" rel="nofollow">
-					<Globe />
-				</a>
+				Appreciating someone is an act of kindness. We should all do more of it. But sometimes, it's hard to find the right word.
+				Apprecio aims to help you with that. A source of inspiration to consult when you're looking for that one
+				word that describes your friend, partner, parent, or colleague best.
+				<br/><br/>
+				Every time you load the site, you will be shown a new positive trait, something that you may appreciate in
+				your friend. Not the word you're looking for? Simply click the button, and you will be presented a new word.
+				<br/><br/>
+				Be inspired. Share your appreciation. Make the world a slightly better place.
 			</p>
-			<h2>About Amy</h2>
-			<p>Amy is a freelance front end developer, starting her own business and working as an Evangalist for YOW! Conference.</p>
-			<p>She enjoys spending her time in the community, speaking at events and blogs in her spare time (about tech, the web and life).</p>
+			<h3>About Sander</h3>
 			<p>
-				<a href="https://twitter.com/Amys_Kapers" target="_blank" rel="nofollow">
-					<Twitter />
-				</a>
-				<a href="https://amygoestoperth.com.au/" target="_blank" rel="nofollow">
-					<Globe />
-				</a>
+				Apprecio is a project developed by Sander Huijsen. Sander is Time to Think Facilitator (in practicum)
+				who lives in Perth, Australia. In his work, he noticed that our every vocabulary seems to be biased toward
+				the negative. Apprecio is his attempt to fix that.
+			</p>
+			<h4>Contact Sander</h4>
+			<p>
+        <Twitter />&nbsp;&nbsp;
+				<a href="https://twitter.com/ahuijsen" target="_blank" rel="nofollow">@ahuijsen</a>
+			</p>
+			<p>
+				<Globe />&nbsp;&nbsp;
+				<a href="https://sanderhuijsen.com/" target="_blank" rel="nofollow">sanderhuijsen.com</a>
 			</p>
 		</div>
 	</div>
