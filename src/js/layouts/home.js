@@ -89,9 +89,10 @@ const About = () => (
 			<a href="#" className="close"><X /></a>
 			<h2>About Apprecio</h2>
 			<p>
-				Appreciating someone is an act of kindness. We should all do more of it. But sometimes, it's hard to find the right word.
-				Apprecio aims to help you with that. A source of inspiration to consult when you're looking for that one
-				word that describes your friend, partner, parent, or colleague best.
+				Appreciating someone is an act of kindness. We appreciate others for their positive personal traits, and we should
+				all do more of it. But sometimes, it's hard to find the right word. Apprecio aims to help you with that. A source
+				of inspiration to consult when you're looking for that one word that describes your friend, partner, parent,
+				or colleague, best.
 				<br/><br/>
 				Every time you load the site, you will be shown a new positive trait, something that you may appreciate in
 				your friend. Not the word you're looking for? Simply click the button, and you will be presented a new word.
