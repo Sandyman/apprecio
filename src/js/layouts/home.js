@@ -36,49 +36,47 @@ class Meta extends Component {
 }
 
 export class Home extends Component {
-	generateNum() {
-		let sumWords = Adjectives.length;
-		let word = Math.floor(Math.random() * Math.floor(sumWords));
-		let adjective = Adjectives[word];
+	constructor() {
+		super();
 
-		return (adjective);
+		this.newWord = this.newWord.bind(this);
+		this.setTypedWord = this.setTypedWord.bind(this);
 	}
 
+	static getRandomAdjective() {
+		let sumWords = Adjectives.length;
+		let index = Math.floor(Math.random() * Math.floor(sumWords));
+		return Adjectives[index].toLowerCase();
+	}
+
+	setTypedWord(typeSpeed, backSpeed) {
+    let words = Home.getRandomAdjective();
+
+    const options = {
+      strings: [words],
+      typeSpeed,
+      backSpeed,
+      fadeOut: true,
+      showCursor: false,
+      // loop: true
+    };
+
+    this.typed = new Typed(this.el, options);
+  }
+
 	componentDidMount() {
-		let words = this.generateNum();
-
-		const options = {
-			strings: [words],
-			typeSpeed: 50,
-			backspeed: 80,
-			fadeOut: true,
-			showCursor: false,
-			// loop: true
-		};
-
-		this.typed = new Typed(this.el, options);			
+		this.setTypedWord(50, 80);
 	};
 
-	newWord(adjective) {
-		let words = adjective;
-
-		const options = {
-			strings: [words],
-			typeSpeed: 80,
-			backspeed: 80,
-			fadeOut: true,
-			showCursor: false,
-			// loop: true
-		};
-
-		this.typed = new Typed(this.el, options);
+	newWord() {
+		this.setTypedWord(80, 80);
 	}
 
 	render() {
 		return (
 			<Fragment>
-				<h1>I think you're <span ref={(el) => {this.el = el;}} id="adjective"></span></h1>
-				<button onClick={() => this.newWord(this.generateNum())}>Not quite right? Try a different word!</button>
+				<h1>I think you are <span ref={(el) => {this.el = el;}} id="adjective" /></h1>
+				<button onClick={() => this.newWord()}>Not quite right? Try a different word!</button>
 				<About />
 			</Fragment>
 		);
