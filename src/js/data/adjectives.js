@@ -137,7 +137,6 @@ const Adjectives = [
   'Orderly',
   'Organized',
   'Original',
-  'Painstaking',
   'Passionate',
   'Patient',
   'Patriotic',
