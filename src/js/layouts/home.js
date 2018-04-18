@@ -82,7 +82,7 @@ export class Home extends Component {
 	render() {
 		return (
 			<Fragment>
-				<Logo />
+				{/*<Logo />*/}
         <Share word={this.state.word} />
         <h1>I think you are <span ref={(el) => {this.el = el;}} id="adjective" />
           <button className="refresh" onClick={() => this.newWord()}>{<RefreshCcw />}</button>
