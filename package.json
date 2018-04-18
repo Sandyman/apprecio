@@ -12,6 +12,16 @@
 		"build": "parcel build ./index.html -d build --public-url / && cp ./build/index.html ./build/404.html"
 	},
 	"author": "AimHigher Web Design",
+	"contributors": [
+		{
+			"name": "Sander Huijsen",
+			"email": "sander.huijsen@gmail.com"
+		},
+		{
+			"name": "Amy Kapernick",
+			"url": "https://amygoestoperth.com.au"
+		}
+	],
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/AimHigher-Web-Design/compliment-generator/issues"
