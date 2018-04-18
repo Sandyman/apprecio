@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Helmet from 'react-helmet';
 
 //Resources
@@ -28,7 +29,11 @@ class Meta extends Component {
 export class App extends Component {
 	render() {
 		return (
-			<Home />
+			<main>
+				<Switch>
+					<Route path='/' component={Home} />
+				</Switch>
+			</main>
 		);
 	}
 }

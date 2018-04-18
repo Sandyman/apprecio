@@ -1,20 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
-
-//Import components
-import { App } from './js/partial/app.js';
+import { BrowserRouter } from 'react-router-dom';
+import Main from './main';
 
 //Resources
 import './scss/global.scss';
 
-class Main extends React.Component {
-	render() {
-		return (
-			<Fragment>
-				<div id="main" className="content main">{<App />}</div>
-			</Fragment>
-		);
-	}
-}
-
-ReactDOM.render(<Main />, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+	  <Main />
+  </BrowserRouter>,
+	document.getElementById('root')
+);

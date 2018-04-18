@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import Typed from 'typed.js';
 import urlencode from 'urlencode';
+import _ from 'underscore';
 
 //Resources
 import { Layout, Info, Twitter, Globe, RefreshCcw, X, Share2 } from 'react-feather';
@@ -35,6 +36,8 @@ class Meta extends Component {
 	}
 }
 
+const firstUpperCase = s => (s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase());
+
 export class Home extends Component {
 	constructor() {
 		super();
@@ -58,9 +61,9 @@ export class Home extends Component {
 		return adjective;
 	}
 
-	setTypedWord(typeSpeed, backSpeed) {
+	setTypedWord(typeSpeed, backSpeed, word) {
     const options = {
-      strings: [this.getRandomAdjective()],
+      strings: [word.toLowerCase()],
       typeSpeed,
       backSpeed,
       fadeOut: true,
@@ -71,19 +74,33 @@ export class Home extends Component {
     this.typed = new Typed(this.el, options);
   }
 
+  static matchUrl(pathname) {
+    const re = /^\/c\/([a-z-]+)$/i;
+    let m = pathname.match(re);
+    if (!!m && _.contains(Adjectives, firstUpperCase(m[1]))) {
+      return m[1];
+    }
+    return null;
+	}
+
 	componentDidMount() {
-		this.setTypedWord(50, 80);
+		const m = Home.matchUrl(this.props.location.pathname);
+		const word = m || this.getRandomAdjective();
+    this.props.history.push(`/c/${word}`);
+    this.setTypedWord(50, 80, word);
 	};
 
 	newWord() {
-		this.setTypedWord(80, 80);
+		const word = this.getRandomAdjective();
+		this.setTypedWord(80, 80, word);
+		this.props.history.push(`/c/${word}`);
 	}
 
 	render() {
 		return (
 			<Fragment>
 				{/*<Logo />*/}
-        <Share word={this.state.word} />
+        <Share word={this.state.word} pathname={this.props.location.pathname} />
         <h1>I think you are <span ref={(el) => {this.el = el;}} id="adjective" />
           <button className="refresh" onClick={() => this.newWord()}>{<RefreshCcw />}</button>
 				</h1>
@@ -146,11 +163,12 @@ const Logo = () => (
 );
 
 class Share extends Component {
-  static shareLinks(word) {
+  static shareLinks(word, pathname) {
+  	const url = `https://www.apprecio.life${pathname}`;
     const name = document.getElementById('name').value;
     if (name.length > 0) {
 			const baseUrl = 'https://twitter.com/messages/compose?text=';
-			const text = `Hi ${name}, I just wanted to let you know that I think you are ${word}. (https://apprecio.life)`;
+			const text = `Hi ${name}, I just wanted to let you know that I think you are ${word}. (${url})`;
 			const articleLink = `${baseUrl}${urlencode(text)}`;
       if (articleLink) {
         window.open(articleLink, '_blank');
@@ -168,7 +186,7 @@ class Share extends Component {
           <a href="#" className="close"><X /></a>
 					<div className="body">Let someone know that you think they are <strong>{this.props.word}</strong>.</div>
           <input id="name" type="text" placeholder="What is their name?" />
-          <button type="button" onClick={() => Share.shareLinks(this.props.word)}>
+          <button type="button" onClick={() => Share.shareLinks(this.props.word, this.props.pathname)}>
 						<span className="twitter"><Twitter /></span>Send them some love
 					</button>
         </div>
