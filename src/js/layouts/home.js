@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import Typed from 'typed.js';
+import urlencode from 'urlencode';
 
 //Resources
-import { Layout, Info, Twitter, Globe, RefreshCcw, X, MessageSquare, Share2 } from 'react-feather';
+import { Layout, Info, Twitter, Globe, RefreshCcw, X, Share2 } from 'react-feather';
 import Adjectives from '../data/adjectives.js';
 
 class Meta extends Component {
@@ -42,12 +43,12 @@ export class Home extends Component {
       word: ''
     };
 
-    Home.getRandomAdjective = Home.getRandomAdjective.bind(this);
+    this.getRandomAdjective = this.getRandomAdjective.bind(this);
 		this.newWord = this.newWord.bind(this);
 		this.setTypedWord = this.setTypedWord.bind(this);
 	}
 
-	static getRandomAdjective() {
+	getRandomAdjective() {
 		const sumWords = Adjectives.length;
 		const index = Math.floor(Math.random() * Math.floor(sumWords));
 		const adjective = Adjectives[index].toLowerCase();
@@ -59,7 +60,7 @@ export class Home extends Component {
 
 	setTypedWord(typeSpeed, backSpeed) {
     const options = {
-      strings: [Home.getRandomAdjective()],
+      strings: [this.getRandomAdjective()],
       typeSpeed,
       backSpeed,
       fadeOut: true,
@@ -81,6 +82,7 @@ export class Home extends Component {
 	render() {
 		return (
 			<Fragment>
+				<Logo />
         <Share word={this.state.word} />
         <h1>I think you are <span ref={(el) => {this.el = el;}} id="adjective" />
 					&nbsp;&nbsp;
@@ -111,9 +113,7 @@ const About = () => (
 				a new word.
 				<br/><br/>
 				Be inspired. Share your appreciation. Make the world a slightly better place.
-			</p>
-			<h3>About Sander</h3>
-			<p>
+				<br/><br/>
 				Apprecio is a project developed by Sander Huijsen. Sander is Time to Think Facilitator (in practicum) who lives
 				in Perth, Australia. In his work, he noticed that our everyday vocabulary seems to be biased toward the negative.
 				Apprecio is his attempt to change that.
@@ -140,21 +140,27 @@ const About = () => (
 	</div>
 );
 
+const Logo = () => (
+	<div className="logo">
+		<img src={require('../../img/logo.png')} alt="Logo" />
+	</div>
+);
+
 class Share extends Component {
   static shareLinks(word) {
-    let name = document.getElementById('name').value;
-    let number = document.getElementById('number').value;
-    let provider = document.querySelector('input[name="provider"]:checked').value;
-    let articleLink = '';
-    if (provider === 'twitter') {
-      let url = "https://twitter.com/messages/compose?text=Hey%20" + name + ",%20I%20think%20you%20are%20";
-      let urlWord = word.replace(' ', '%20');
-      articleLink = url + urlWord;
-    } else if (provider === 'sms') {
-      let url = "sms:" + number + "?body=Hey " + name + "I think you are ";
-      articleLink = url + word;
-    }
-    window.open(articleLink, '_blank');
+    const name = document.getElementById('name').value;
+    if (name.length > 0) {
+      let provider = document.querySelector('input[name="provider"]:checked').value;
+      let articleLink = null;
+      if (provider === 'twitter') {
+        const baseUrl = 'https://twitter.com/messages/compose?text=';
+        const text = `Hi ${name}, I just wanted to let you know that I think you are ${word}. (https://apprecio.life)`;
+        articleLink = `${baseUrl}${urlencode(text)}`;
+      }
+      if (articleLink) {
+        window.open(articleLink, '_blank');
+      }
+		}
   };
 
   render() {
@@ -166,11 +172,13 @@ class Share extends Component {
         <div id="share" className="share-modal">
           <a href="#" className="close"><X /></a>
           <div className="icons">
-            <label><input type="radio" name="provider" value="twitter" /><Twitter /></label>
-            <label><input type="radio" name="provider" value="sms" /><MessageSquare /></label>
+            <label>
+							<input type="radio" name="provider" value="twitter" defaultChecked />
+							<Twitter />
+						</label>
           </div>
-          <input id="name" type="text" placeholder="Their name" />
-          <input id="number" type="text" placeholder="Their number" />
+          <h4>Appreciate someone</h4>
+          <input id="name" type="text" placeholder="Who do you want to compliment?" />
           <button type="button" onClick={() => Share.shareLinks(this.props.word)}>Send them some love</button>
         </div>
       </Fragment>

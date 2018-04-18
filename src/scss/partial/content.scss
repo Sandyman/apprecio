@@ -95,7 +95,7 @@ img {
     width: var(--size);
 
     &:active, &:hover, &:focus {
-      animation: refresh 2s linear;
+      animation: refresh 0.6s linear;
     }
 
     @keyframes refresh {
@@ -104,33 +104,40 @@ img {
       }
 
       25% {
-        transform: rotate(-90deg);
+        transform: rotate(-45deg);
       }
 
       50% {
-        transform: rotate(-180deg);
+        transform: rotate(-90deg);
       }
 
       75% {
-        transform: rotate(-270deg);
+        transform: rotate(-135deg);
       }
 
       100% {
-        transform: rotate(-360deg);
+        transform: rotate(-180deg);
       }
     }
   }
 }
 
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 12vw;
+}
+
 .share {
     position: absolute;
-        top: 20px;
-        right: 20px;
+    top: 20px;
+    right: 20px;
 }
 
 .icons {
     display: flex;
-        justify-content: space-between;
+    justify-content: space-between;
     padding: 5px 20px;
 
     svg {
@@ -142,11 +149,18 @@ img {
     background: $grey_light_10;
     border: 2px solid $grey;
     display: none;
+    width: 21vw;
     flex-direction: column;
     padding: 20px;
     position: absolute;
-        top: 30px;
-        right: 20px;
+    top: 30px;
+    right: 20px;
+
+    h4 {
+      font-weight: bold;
+      margin-bottom: 20px;
+      margin-left: 4px;
+    }
 
     &:target {
         display: flex;
@@ -176,13 +190,14 @@ img {
     }
 
     button {
-        border: 1.5px solid $grey;
+        border: 1.5px solid $grey_light_25;
+        color: $grey_light_90;
         margin-top: 20px;
     }
 }
 
 .about {
-  font-size: 1.7em;
+  font-size: 1.1em;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -198,7 +213,6 @@ img {
     top: 20vh;
     left: 25vw;
     width: 50vw;
-
 
     &:target {
       display: block;
@@ -220,19 +234,4 @@ img {
 #icon {
   position: relative;
   top: 5px;
-}
-
-#glyph {
-  color: #{$grey_light_90};
-  font-size: 0.7em;
-
-  &:focus {
-    color: #{$grey_light_50}
-  }
-  &:hover {
-    color: #{$grey_light_75}
-  }
-  &:active {
-    color: #{$grey_dark_75}
-  }
 }
