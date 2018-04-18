@@ -1,11 +1,11 @@
 {
-	"name": "compliment-generator",
+	"name": "apprecio",
 	"version": "1.0.0",
-	"description": "Static React website from AimHigher's React Starter kit",
+	"description": "Find appreciative inspiration or pay a compliment",
 	"main": "index.js",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:AimHigher-Web-Design/compliment-generator.git"
+		"url": "git@github.com:Sandyman/apprecio.git"
 	},
 	"scripts": {
 		"start": "parcel ./index.html -p 3500",
