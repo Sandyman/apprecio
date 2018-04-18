@@ -166,8 +166,7 @@ class Share extends Component {
         </div>
         <div id="share" className="share-modal">
           <a href="#" className="close"><X /></a>
-					<br/>
-					<h4>Let someone know that you think they are <strong>{this.props.word}</strong>.</h4>
+					<div className="body">Let someone know that you think they are <strong>{this.props.word}</strong>.</div>
           <input id="name" type="text" placeholder="What is their name?" />
           <button type="button" onClick={() => Share.shareLinks(this.props.word)}>
 						<span className="twitter"><Twitter /></span>Send them some love

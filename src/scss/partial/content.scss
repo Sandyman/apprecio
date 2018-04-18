@@ -161,9 +161,11 @@ img {
     right: 20px;
     z-index: 20;
 
-    h4 {
-      margin-bottom: 20px;
+    .body {
+      line-height: 1.8;
+      margin-bottom: 16px;
       margin-left: 4px;
+      margin-top: 24px;
     }
 
     &:target {
