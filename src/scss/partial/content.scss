@@ -149,7 +149,7 @@ img {
     background: $grey_light_10;
     border: 2px solid $grey;
     display: none;
-    width: 21vw;
+    width: 20vw;
     flex-direction: column;
     padding: 20px;
     position: absolute;
@@ -157,7 +157,6 @@ img {
     right: 20px;
 
     h4 {
-      font-weight: bold;
       margin-bottom: 20px;
       margin-left: 4px;
     }
@@ -193,6 +192,12 @@ img {
         border: 1.5px solid $grey_light_25;
         color: $grey_light_90;
         margin-top: 20px;
+    }
+
+    .twitter {
+      padding-right: 12px;
+      position: relative;
+      top: 4px;
     }
 }
 

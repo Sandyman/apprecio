@@ -150,13 +150,9 @@ class Share extends Component {
   static shareLinks(word) {
     const name = document.getElementById('name').value;
     if (name.length > 0) {
-      let provider = document.querySelector('input[name="provider"]:checked').value;
-      let articleLink = null;
-      if (provider === 'twitter') {
-        const baseUrl = 'https://twitter.com/messages/compose?text=';
-        const text = `Hi ${name}, I just wanted to let you know that I think you are ${word}. (https://apprecio.life)`;
-        articleLink = `${baseUrl}${urlencode(text)}`;
-      }
+			const baseUrl = 'https://twitter.com/messages/compose?text=';
+			const text = `Hi ${name}, I just wanted to let you know that I think you are ${word}. (https://apprecio.life)`;
+			const articleLink = `${baseUrl}${urlencode(text)}`;
       if (articleLink) {
         window.open(articleLink, '_blank');
       }
@@ -171,15 +167,12 @@ class Share extends Component {
         </div>
         <div id="share" className="share-modal">
           <a href="#" className="close"><X /></a>
-          <div className="icons">
-            <label>
-							<input type="radio" name="provider" value="twitter" defaultChecked />
-							<Twitter />
-						</label>
-          </div>
-          <h4>Appreciate someone</h4>
-          <input id="name" type="text" placeholder="Who do you want to compliment?" />
-          <button type="button" onClick={() => Share.shareLinks(this.props.word)}>Send them some love</button>
+					<br/>
+					<h4>Let someone know that you think they are <strong>{this.props.word}</strong>.</h4>
+          <input id="name" type="text" placeholder="What is their name?" />
+          <button type="button" onClick={() => Share.shareLinks(this.props.word)}>
+						<span className="twitter"><Twitter /></span>Send them some love
+					</button>
         </div>
       </Fragment>
     );
