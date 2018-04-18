@@ -75,7 +75,7 @@ const Adjectives = [
   'Firm',
   'Flexible',
   'Focused',
-  'Forecful',
+  'Forceful',
   'Forgiving',
   'Forthright',
   'Freethinking',

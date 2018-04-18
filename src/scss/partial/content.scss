@@ -1,14 +1,12 @@
 @import '../variables.scss';
 
 body {
-  --colour: #{$purple};
+  --colour: #{$purple_dark};
   --background: #{$cream};
 
   background: var(--background);
   color: $grey;
   font: $font_regular;
-  font-size: 1.6em;
-  line-height: 1.8;
   min-height: 100vh;
   margin: 0;
   overflow-x: hidden;
@@ -18,7 +16,8 @@ body {
 
 h1 {
   font: $font_headings;
-  font-size: 4em;
+  font-size: 3.8em;
+  text-align: center;
 }
 
 h3 {
@@ -30,8 +29,13 @@ a {
   color: $grey;
 
   &:active, &:hover, &:focus {
-    font: $font_bold;
+    color: var(--colour);
+    text-decoration: none;
   }
+}
+
+small {
+  font-size: 0.7em;
 }
 
 button, .btn {
@@ -131,8 +135,8 @@ img {
 
 .share {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 0px;
+    right: 0px;
 }
 
 .icons {
@@ -155,6 +159,7 @@ img {
     position: absolute;
     top: 30px;
     right: 20px;
+    z-index: 20;
 
     h4 {
       margin-bottom: 20px;
@@ -162,20 +167,20 @@ img {
     }
 
     &:target {
-        display: flex;
+       display: flex;
     }
 
     .close {
-        position: absolute;
-            top: 20px;
-            right: 20px;
+       position: absolute;
+       top: 20px;
+       right: 20px;
     }
 
     input[type="text"] {
-        font-size: 1em;
-        line-height: 1.5;
-        margin: 10px 0;
-        padding: 5px 15px;
+      font-size: 1em;
+      line-height: 1.5;
+      margin: 10px 0;
+      padding: 5px 15px;
     }
 
     input[type="radio"] {
@@ -183,15 +188,15 @@ img {
 
         &:checked {
             ~ svg {
-                color: $blue;
+                color: var(--colour);
             }
         }
     }
 
     button {
-        border: 1.5px solid $grey_light_25;
-        color: $grey_light_90;
-        margin-top: 20px;
+       border: 1.5px solid $grey_light_25;
+       color: $grey_light_90;
+       margin-top: 20px;
     }
 
     .twitter {
@@ -202,7 +207,6 @@ img {
 }
 
 .about {
-  font-size: 1.1em;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -211,6 +215,7 @@ img {
     background: $grey_light_10;
     border: 2px solid $grey;
     display: none;
+    font-size: 0.9em;
     height: 50vh;
     overflow-y: scroll;
     padding: 40px;
@@ -218,9 +223,14 @@ img {
     top: 20vh;
     left: 25vw;
     width: 50vw;
+    z-index: 20;
 
     &:target {
       display: block;
+    }
+
+    h3 {
+      margin: 15px 0;
     }
 
     .close {
@@ -228,15 +238,28 @@ img {
       top: 20px;
       right: 20px;
     }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+      }
+    }
+
+    .icons {
+      display: inline-block;
+      font-size: 24px;
+      line-height: 1;
+      padding: 0;
+
+      svg {
+        margin: 0 10px 0 0;
+      }
+    }
   }
-}
-
-#design {
-  font-size: 0.8em;
-  margin-top: -10px;
-}
-
-#icon {
-  position: relative;
-  top: 5px;
 }
