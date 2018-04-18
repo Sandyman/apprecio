@@ -62,7 +62,7 @@ export class Home extends Component {
 
   componentWillReceiveProps() {
     const m = Home.matchUrl(this.props.history.location.pathname);
-    if (m && m !== this.state.word) {
+    if (m) {
       this.setTypedWord(50, 80, m);
     }
   }
@@ -86,6 +86,8 @@ export class Home extends Component {
   }
 
   setTypedWord(typeSpeed, backSpeed, word) {
+    if (word === this.state.word) return;
+
     this.setState({ word });
     const options = {
       strings: [word.toLowerCase()],
