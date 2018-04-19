@@ -8,6 +8,7 @@ import favicons from '../../img/favicons/*';
 
 //Components
 import { Home } from '../layouts/home.js';
+import My404 from '../layouts/my404';
 
 class Meta extends Component {
 	render() {
@@ -31,6 +32,7 @@ export class App extends Component {
 		return (
 			<main>
 				<Switch>
+          <Route path='/404' component={My404} />
 					<Route path='/' component={Home} />
 				</Switch>
 			</main>
