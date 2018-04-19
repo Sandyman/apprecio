@@ -1,12 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import Typed from 'typed.js';
-import urlencode from 'urlencode';
 import _ from 'underscore';
 
 //Resources
-import { Layout, Info, Twitter, Globe, RefreshCcw, X, Share2 } from 'react-feather';
+import { RefreshCcw } from 'react-feather';
 import Adjectives from '../data/adjectives.js';
+
+import About from './about';
+import Logo from './logo';
+import Share from './share';
 
 class Meta extends Component {
 	render() {
@@ -117,89 +120,4 @@ export class Home extends Component {
 			</Fragment>
 		);
 	}
-}
-
-const About = () => (
-	<div className="about icons">
-		<a href="#about" title="Link to display the information page">
-			<Info />
-		</a>
-		<div id="about">
-			<a href="#" className="close"><X /></a>
-			<h3>About Apprecio</h3>
-			<p>
-				Appreciating someone is an act of kindness. We appreciate others for their positive personal traits, and we should
-				all do more of it. But sometimes, it's hard to find the right word. Apprecio aims to help you with that. A source
-				of inspiration to consult when you're looking for that one word with which you can best appreciate your friend,
-				partner, parent, or colleague.
-				<br/><br/>
-				Every time you load the site, you will be shown a new positive trait, something that you may appreciate in
-				your friend. Not the word you're looking for? Simply click the refresh icon, and you will be presented with
-				a new word.
-				<br/><br/>
-				Be inspired. Share your appreciation. Make the world a slightly better place.
-				<br/><br/>
-				Apprecio is a project developed by Sander Huijsen. Sander is Time to Think Facilitator (in practicum) who lives
-				in Perth, Australia. In his work, he noticed that our everyday vocabulary seems to be biased toward the negative.
-				Apprecio is his attempt to change that.
-			</p>
-			<h3>Contact Sander</h3>
-      <ul>
-        <li>
-          <span className="icons"><Twitter /></span>
-          <a href="https://twitter.com/ahuijsen" target="_blank" rel="nofollow">@ahuijsen</a>
-        </li>
-        <li>
-          <span className="icons"><Globe /></span>
-          <a href="https://sanderhuijsen.com/" target="_blank" rel="nofollow">sanderhuijsen.com</a>
-        </li>
-      </ul>
-      <h3>Design</h3>
-      <ul>
-        <li>
-          <span className="icons"><Layout /></span>
-          <small>Web design by <a href="https://amygoestoperth.com.au" target="_blank" rel="nofollow">Amy Kapernick</a></small>
-        </li>
-      </ul>
-		</div>
-	</div>
-);
-
-const Logo = () => (
-	<div className="logo">
-		<img src={require('../../img/logo4.png')} alt="Logo" />
-	</div>
-);
-
-class Share extends Component {
-  static shareLinks(word, pathname) {
-  	const url = `https://www.apprecio.life${pathname}`;
-    const name = document.getElementById('name').value;
-    if (name.length > 0) {
-			const baseUrl = 'https://twitter.com/messages/compose?text=';
-			const text = `Hi ${name}, I just wanted to let you know that I think you are ${word}. (${url})`;
-			const articleLink = `${baseUrl}${urlencode(text)}`;
-      if (articleLink) {
-        window.open(articleLink, '_blank');
-      }
-		}
-  };
-
-  render() {
-    return (
-      <Fragment>
-        <div className="share icons">
-          <a href="#share"><Share2 /></a>
-        </div>
-        <div id="share" className="share-modal">
-          <a href="#" className="close"><X /></a>
-					<div className="body">Let someone know that you think they are <strong>{this.props.word}</strong>.</div>
-          <input id="name" type="text" placeholder="What is their name?" />
-          <button type="button" onClick={() => Share.shareLinks(this.props.word, this.props.pathname)}>
-						<span className="twitter"><Twitter /></span>Send them some love
-					</button>
-        </div>
-      </Fragment>
-    );
-  };
 }
