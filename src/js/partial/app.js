@@ -32,8 +32,9 @@ export class App extends Component {
 		return (
 			<main>
 				<Switch>
-          <Route path='/404' component={My404} />
-					<Route path='/' component={Home} />
+          <Route path='/' exact component={Home} />
+					<Route path='/c/:adjective' component={Home} />
+          <Route component={My404} />
 				</Switch>
 			</main>
 		);

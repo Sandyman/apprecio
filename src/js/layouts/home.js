@@ -54,12 +54,16 @@ export class Home extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
-    const m = Home.matchUrl(this.props.history.location.pathname);
-    if (!m) {
+	  const pathname = this.props.history.location.pathname;
+	  if (pathname === '/') {
       this.props.history.push(`/c/${Home.getRandomAdjective()}`);
     } else {
-      this.setTypedWord(50, 80, m);
+      const m = Home.matchUrl(pathname);
+      if (!m) {
+        this.props.history.push('/404');
+      } else {
+        this.setTypedWord(50, 80, m);
+      }
     }
   };
 
@@ -111,7 +115,7 @@ export class Home extends Component {
 	render() {
 		return (
 			<Fragment>
-				{/*<Logo />*/}
+				<Logo />
         <Share word={this.state.word} pathname={this.props.history.location.pathname} />
         <h1>I think you are <span ref={(el) => {this.el = el;}} id="adjective" />
           <button className="refresh" onClick={() => this.newWord()}>{<RefreshCcw />}</button>

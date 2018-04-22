@@ -25,10 +25,14 @@ class Share extends Component {
         </div>
         <div id="share" className="share-modal">
           <a href="#" className="close"><X /></a>
-          <div className="body">Let someone know that you think they are <strong>{this.props.word}</strong>.</div>
+          <div className="body">Let someone know that you think they are <strong>{this.props.word}</strong>.&nbsp;
+            <span className="edit">(You can edit your message before sending.)</span>
+          </div>
+
           <input id="name" type="text" placeholder="What is their name?" />
           <button type="button" onClick={() => Share.shareLinks(this.props.word, this.props.pathname)}>
-            <span className="twitter"><Twitter /></span>Send them some love
+            <span className="twitter"><Twitter /></span>
+            Send them some love
           </button>
         </div>
       </Fragment>

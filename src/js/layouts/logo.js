@@ -2,7 +2,7 @@ import React from 'react';
 
 const Logo = () => (
   <div className="logo">
-    <img src={require('../../img/logo4.png')} alt="Logo" />
+    <a href='/'><img src={require('../../img/logo7.png')} alt="Logo" /></a>
   </div>
 );
 

@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
+import Logo from './logo';
+
 class My404 extends Component {
   componentDidMount() {
     console.log('My404');
@@ -8,16 +10,13 @@ class My404 extends Component {
   render() {
     return (
       <Fragment>
-        <div>
+        <Logo />
+        <div className="oops">
           <h2>Oops! Something went wrong...</h2>
           <img src={require('../../img/mary.jpg')} alt="Not found" />
         </div>
         <div>
-          <h2>I still think you are <strong>supercalifragilisticexpialidocious</strong>!</h2>
-        </div>
-        <div>
-          <br/>
-          <a href="/" >&lt;&lt; Home</a>
+          <h2>I still think you are <strong>supercalifragilisticexpialidocious</strong>, though!</h2>
         </div>
       </Fragment>
     )
