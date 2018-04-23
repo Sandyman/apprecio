@@ -25,7 +25,7 @@ class Share extends Component {
         </div>
         <div id="share" className="share-modal">
           <a href="#" className="close"><X /></a>
-          <div className="body">Let someone know that you think they are <strong>{this.props.word}</strong>.&nbsp;
+          <div className="body">Let someone know that you think they are <strong>{this.props.word}</strong>.<br/>
             <span className="edit">(You can edit your message before sending.)</span>
           </div>
 
