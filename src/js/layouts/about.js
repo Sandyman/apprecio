@@ -1,6 +1,8 @@
 import React from 'react';
 import { Layout, Info, Twitter, Globe, X } from 'react-feather';
 
+import Logo from './logo';
+
 const About = () => (
   <div className="about icons">
     <a href="#about" title="Link to display the information page">
@@ -9,7 +11,7 @@ const About = () => (
     <div id="about">
       <a href="#" className="close"><X /></a>
       <div className="body">
-        <h3>About Apprecio</h3>
+        <Logo />
         <p>
           Appreciating someone is an act of kindness. We appreciate others for their positive personal traits, and we should
           all do more of it. But sometimes, it's hard to find the right word. Apprecio aims to help you with that. A source
@@ -21,7 +23,9 @@ const About = () => (
           a new word.
           <br/><br/>
           Be inspired. Share your appreciation. Make the world a slightly better place.
-          <br/><br/>
+        </p>
+        <h3>About Apprecio</h3>
+        <p>
           Apprecio is a project developed by Sander Huijsen. Sander is Time to Think Facilitator (in practicum) who lives
           in Perth, Australia. In his work, he noticed that our everyday vocabulary seems to be biased toward the negative.
           Apprecio is his attempt to change that.
