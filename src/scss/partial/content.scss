@@ -173,7 +173,7 @@ img {
       margin-top: 1.8vh;
 
       .edit {
-        font-size: 0.9vh;
+        font-size: 1vh;
         color: $grey_light_75;
       }
     }
@@ -253,13 +253,13 @@ img {
     overflow-y: scroll;
     padding: 40px;
     position: fixed;
-    top: 20vh;
+    top: 21vh;
     left: 30vw;
     width: 40vw;
     z-index: 20;
 
     .body {
-      margin-top: 6vh;
+      margin-top: 7vh;
 
       .logo {
         left: 2vw;
