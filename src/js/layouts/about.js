@@ -27,7 +27,7 @@ const About = () => (
         <h3>About Apprecio</h3>
         <p>
           Apprecio is a project developed by Sander Huijsen. Sander is Time to Think Facilitator (in practicum) and
-          Master Thinker who lives in Perth, Australia. In his work, he noticed that our everyday vocabulary seems to be
+          Master Thinker™ who lives in Perth, Australia. In his work, he noticed that our everyday vocabulary seems to be
           biased toward the negative. Apprecio is his attempt to change that.
         </p>
         <h3>Contact Sander</h3>
