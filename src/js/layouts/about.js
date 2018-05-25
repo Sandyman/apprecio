@@ -19,16 +19,17 @@ const About = () => (
           partner, parent, or colleague.
           <br/><br/>
           Every time you load the site, you will be shown a new positive trait, something that you may appreciate in
-          your friend. Not the word you're looking for? Simply click the refresh icon, and you will be presented with
-          a new word.
+          your friend, partner or colleague. Not the word you're looking for? Simply click the refresh icon, and you
+          will be presented with a new word.
           <br/><br/>
           Be inspired. Share your appreciation. Make the world a slightly better place.
         </p>
         <h3>About Apprecio</h3>
         <p>
-          Apprecio is a project developed by Sander Huijsen. Sander is Time to Think Facilitator (in practicum) and
-          Master Thinker who lives in Perth, Australia. In his work, he noticed that our everyday vocabulary seems to be
-          biased toward the negative. Apprecio is his attempt to change that.
+          Apprecio is a project developed by <a href="https://masterthinkers.com.au" target="_blank">Master Thinkers Pty Ltd</a>,
+          which was founded in May 2018 by Sander Huijsen. Sander lives in Perth and is a Time to Think Facilitator.
+          In his work and life, he noticed that our everyday vocabulary seems to be biased toward the negative. Apprecio
+          is his attempt to change that.
         </p>
         <h3>Contact Sander</h3>
         <ul>
