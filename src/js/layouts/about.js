@@ -27,7 +27,7 @@ const About = () => (
         <h3>About Apprecio</h3>
         <p>
           Apprecio is a project developed by <a href="https://masterthinkers.com.au" target="_blank">Master Thinkers Pty Ltd</a>,
-          which was founded in May 2018 by Sander Huijsen, who lives in Perth and is a Time to Think Facilitator.
+          which was founded in May 2018 by Sander Huijsen. Sander lives in Perth and is a Time to Think Facilitator.
           In his work and life, he noticed that our everyday vocabulary seems to be biased toward the negative. Apprecio
           is his attempt to change that.
         </p>
