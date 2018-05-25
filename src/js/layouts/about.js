@@ -39,7 +39,7 @@ const About = () => (
           </li>
           <li>
             <span className="icons"><Globe /></span>
-            <a href="https://sanderhuijsen.com/" target="_blank" rel="nofollow">www.sanderhuijsen.com</a>
+            <a href="https://masterthinkers.com.au" target="_blank" rel="nofollow">masterthinkers.com.au</a>
           </li>
         </ul>
         <h3>Design</h3>
