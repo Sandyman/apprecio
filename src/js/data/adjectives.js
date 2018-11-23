@@ -228,7 +228,7 @@ const Adjectives = [
   'Winning',
   'Wise',
   'Witty',
-  'Youthful'
+  'Youthful',
 ];
 
 export default Adjectives;

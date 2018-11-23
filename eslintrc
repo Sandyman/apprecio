@@ -5,6 +5,6 @@
           "error", 
           "never"
         ],
-        "indent": [true, "tab"]
+        "indent": [1, 2]
     }
-  }
+}

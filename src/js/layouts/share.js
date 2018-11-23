@@ -1,5 +1,6 @@
-import React, { Component, Fragment } from "react";
-import urlencode from "urlencode";
+/* eslint-disable no-undef,react/prop-types,react/jsx-filename-extension */
+import React, { Component, Fragment } from 'react';
+import urlencode from 'urlencode';
 
 import { MessageSquare, Twitter, X, Share2 } from 'react-feather';
 
@@ -25,21 +26,21 @@ class Share extends Component {
     const name = document.getElementById('name').value;
     this.setState({
       hasInput: name.length > 0,
-    })
+    });
   }
 
   onProviderClick() {
     this.setState({
       provider: document.querySelector('input[name="provider"]:checked').value,
       submitDisabled: false,
-    })
-  };
+    });
+  }
 
   shareLinks(word, pathname) {
     const url = `https://www.apprecio.life${pathname}`;
     let name = document.getElementById('name').value;
     if (name.length > 0) {
-      const provider = this.state.provider;
+      const { provider } = this.state;
       let baseUrl;
       let text;
       if (provider === 'dm') {
@@ -57,7 +58,7 @@ class Share extends Component {
         window.open(articleLink, '_blank');
       }
     }
-  };
+  }
 
   render() {
     const { word, pathname } = this.props;
@@ -71,7 +72,7 @@ class Share extends Component {
           <a href="#" className="close"><X /></a>
           <div className="icons">
             <label>
-                <input type="radio" name="provider" value="tweet" onClick={this.onProviderClick} /><Twitter />
+              <input type="radio" name="provider" value="tweet" onClick={this.onProviderClick} /><Twitter />
             </label>
             <label>
               <input type="radio" name="provider" value="dm" onClick={this.onProviderClick} /><MessageSquare />
@@ -92,7 +93,7 @@ class Share extends Component {
         </div>
       </Fragment>
     );
-  };
+  }
 }
 
 export default Share;

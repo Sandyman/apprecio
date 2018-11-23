@@ -1,10 +1,11 @@
+/* eslint-disable react/jsx-filename-extension,react/prop-types */
 import React, { Component, Fragment } from 'react';
 import Typed from 'typed.js';
 import _ from 'underscore';
 
-//Resources
+// Resources
 import { RefreshCcw } from 'react-feather';
-import Adjectives from '../data/adjectives.js';
+import Adjectives from '../data/adjectives';
 
 import About from './about';
 import Logo from './logo';
@@ -13,20 +14,32 @@ import Share from './share';
 const firstUpperCase = s => (s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase());
 
 export class Home extends Component {
-	constructor(props) {
-		super(props);
+  static matchUrl(pathname) {
+    // Matches, for instance, /c/creative
+    const re = /^\/c\/([a-z-]+)$/i;
+    const m = pathname.match(re);
 
-		this.newWord = this.newWord.bind(this);
-		this.setTypedWord = this.setTypedWord.bind(this);
+    // For now, we only accept words we know to prevent misuse
+    if (!!m && _.contains(Adjectives, firstUpperCase(m[1]))) {
+      return m[1];
+    }
+    return null;
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.newWord = this.newWord.bind(this);
+    this.setTypedWord = this.setTypedWord.bind(this);
 
     this.state = {
-      word: ''
+      word: '',
     };
   }
 
   componentDidMount() {
-	  const pathname = this.props.history.location.pathname;
-	  if (pathname === '/') {
+    const { pathname } = this.props.history.location;
+    if (pathname === '/') {
       this.props.history.push(`/c/${Home.getRandomAdjective()}`);
     } else {
       const m = Home.matchUrl(pathname);
@@ -36,7 +49,7 @@ export class Home extends Component {
         this.setTypedWord(50, 80, m);
       }
     }
-  };
+  }
 
   componentWillReceiveProps() {
     const m = Home.matchUrl(this.props.history.location.pathname);
@@ -46,21 +59,9 @@ export class Home extends Component {
   }
 
   static getRandomAdjective() {
-		const sumWords = Adjectives.length;
-		const index = Math.floor(Math.random() * Math.floor(sumWords));
+    const sumWords = Adjectives.length;
+    const index = Math.floor(Math.random() * Math.floor(sumWords));
     return Adjectives[index].toLowerCase();
-	}
-
-  static matchUrl(pathname) {
-		// Matches, for instance, /c/creative
-    const re = /^\/c\/([a-z-]+)$/i;
-    let m = pathname.match(re);
-
-    // For now, we only accept words we know to prevent misuse
-    if (!!m && _.contains(Adjectives, firstUpperCase(m[1]))) {
-      return m[1];
-    }
-    return null;
   }
 
   setTypedWord(typeSpeed, backSpeed, word) {
@@ -78,21 +79,23 @@ export class Home extends Component {
     this.typed = new Typed(this.el, options);
   }
 
-	newWord() {
-		const word = Home.getRandomAdjective();
+  newWord() {
+    const word = Home.getRandomAdjective();
     this.props.history.push(`/c/${word}`);
-	}
+  }
 
-	render() {
-		return (
-			<Fragment>
-				<Logo />
+  render() {
+    return (
+      <Fragment>
+        <Logo />
         <Share word={this.state.word} pathname={this.props.history.location.pathname} />
-        <h1>I think you are <span ref={(el) => {this.el = el;}} id="adjective" />
+        <h1>I think you are <span ref={(el) => { this.el = el; }} id="adjective" />,
           <button className="refresh" onClick={() => this.newWord()}>{<RefreshCcw />}</button>
-				</h1>
-				<About />
-			</Fragment>
-		);
-	}
+          <br />
+          and I appreciate that in you.
+        </h1>
+        <About />
+      </Fragment>
+    );
+  }
 }

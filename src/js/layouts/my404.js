@@ -1,3 +1,4 @@
+/* eslint-disable global-require,react/jsx-filename-extension */
 import React, { Component, Fragment } from 'react';
 
 import Logo from './logo';
@@ -16,10 +17,12 @@ class My404 extends Component {
           <img src={require('../../img/mary.jpg')} alt="Not found" />
         </div>
         <div>
-          <h2>I still think you are <strong>supercalifragilisticexpialidocious</strong>, though!</h2>
+          <h2>
+            I still think you are <strong>supercalifragilisticexpialidocious</strong>, though!
+          </h2>
         </div>
       </Fragment>
-    )
+    );
   }
 }
 

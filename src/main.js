@@ -1,17 +1,16 @@
-import React, { Component, Fragment } from "react";
+/* eslint-disable react/jsx-filename-extension */
+import React, {Fragment} from 'react';
 
-import { App } from './js/partial/app.js';
+import { App } from './js/partial/app';
 
-class Main extends Component {
-  render() {
-    return (
-      <Fragment>
-        <div id="main" className="content main">
-          <App />
-        </div>
-      </Fragment>
-    );
-  }
+function Main() {
+  return (
+    <Fragment>
+      <div id="main" className="content main">
+        <App />
+      </div>
+    </Fragment>
+  );
 }
 
 export default Main;
