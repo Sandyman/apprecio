@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { Helmet } from 'react-helmet';
 import Typed from 'typed.js';
 import _ from 'underscore';
 
@@ -10,34 +9,6 @@ import Adjectives from '../data/adjectives.js';
 import About from './about';
 import Logo from './logo';
 import Share from './share';
-
-class Meta extends Component {
-	render() {
-		let name = 'Apprecio';
-		let description = 'When you need some inspiration to find the right words.';
-		let image = '';
-		let url = 'https://www.apprecio.life';
-		return (
-			<Helmet>
-				<title>{name}</title>
-				<meta name="description" content={description} />
-				<link rel="canonical" href={url} />
-
-				{/* Facebook */}
-				<meta property="og:url" content={url} />
-				<meta property="og:title" content={name} />
-				<meta property="og:image" content={image} />
-				<meta property="og:description" content={description} />
-
-				{/* Twitter */}
-				<meta name="twitter:url" content={url} />
-				<meta name="twitter:title" content={name} />
-				<meta name="twitter:description" content={description} />
-				<meta name="twitter:image" content={image} />
-			</Helmet>
-		);
-	}
-}
 
 const firstUpperCase = s => (s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase());
 
