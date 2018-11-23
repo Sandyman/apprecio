@@ -29,7 +29,7 @@ const About = () => (
         </p>
         <h3>About Apprecio</h3>
         <p>
-          Apprecio is a project developed by
+          Apprecio is a project developed by&nbsp;
           <a href="https://masterthinkers.com.au" target="_blank" rel="noopener noreferrer">
             Master Thinkers Pty Ltd
           </a>,
