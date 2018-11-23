@@ -89,10 +89,10 @@ export class Home extends Component {
       <Fragment>
         <Logo />
         <Share word={this.state.word} pathname={this.props.history.location.pathname} />
-        <h1>I think you are <span ref={(el) => { this.el = el; }} id="adjective" />,
-          <button className="refresh" onClick={() => this.newWord()}>{<RefreshCcw />}</button>
+        <h1>I think you are <strong><span ref={(el) => { this.el = el; }} /></strong>,
           <br />
           and I appreciate that in you.
+          <button className="refresh" onClick={() => this.newWord()}>{<RefreshCcw />}</button>
         </h1>
         <About />
       </Fragment>
